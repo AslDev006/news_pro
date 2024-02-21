@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ news.title }}{% endblock title %}
+
+{% block content %}
+
+    <h2 class="text-center">Joriy yangilikni o'chirirsh</h2>
+    <form method="post">{% csrf_token %}
+        <h3>{{ news.title | truncatewords:5 }}  sarlavhali yangilikni o'chirmoqchimisiz</h3>
+        <button type="submit" class="btn btn-danger ml-2">Tasdiqlayman</button>
+    </form>
+{% endblock content %}

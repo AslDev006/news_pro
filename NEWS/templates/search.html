@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %} Sport News {% endblock title %}
+
+
+{% block content %}
+    <h3> Qidiruv natijalari..... </h3>
+    {% for new in all_news %}
+        <hr>
+        <h4><a  style="color: red;" href="{% url 'single' new.slug %}">{{ new.title | truncatewords:7 }}</a></h4>
+        <h5><a  style="color: #222;" href="{% url 'single' new.slug %}">{{ new.body | truncatewords:20 }}</a></h5>
+        <p><img src="{{ new.image.url }}" width="20%"></p>
+    {% endfor %}
+{% endblock content %}

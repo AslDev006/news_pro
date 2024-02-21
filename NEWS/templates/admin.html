@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %}  Admin Page {% endblock title %}
+
+
+
+{% block content %}
+
+    <h2>Admin Page</h2>
+    <h3>All Admins</h3>
+    <table>
+        <ul>
+            <li>Username</li>
+            <li>Photo</li>
+        </ul>
+        {% for user in admin_user %}
+        <ul>
+            <li>{{ user.username }}</li>
+            <li><a href="{{ user.profile.photo.url }}">{{ user.profile.photo.url }}</a></li>
+        </ul>
+        {% endfor %}
+    </table>
+{% endblock content %}

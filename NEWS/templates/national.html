@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %} National News {% endblock title %}
+
+
+{% block content %}
+
+    <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="single_post_content">
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+              {% for new in national_news %}
+                <li style="margin: 10px;z">
+                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="{{ new.image.url }}"> </a>
+                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title">{{ new.title | truncatewords:10 }}</a> </div>
+                      <p>{{ new.body | truncatewords:20 }}</p>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock content %}
